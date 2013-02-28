@@ -5,7 +5,7 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
   response.send('Hello Kaden!');
-  response.send(document.write("<p>My First JavaScript</p>");
+
 });
 
 
