@@ -1,12 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 
-var app = express.createServer(express.logger());
-
-app.get('/', function(request, response) {
-  response.send('Hello Kaden!');
-  
-  fs.readFile('./static.html', function(error, content) {
+fs.readFile('./static.html', function(error, content) {
         if (error) {
             response.writeHead(500);
             response.end();
@@ -17,7 +12,14 @@ app.get('/', function(request, response) {
         }
     });
 
+
+var app = express.createServer(express.logger());
+
+app.get('/', function(request, response) {
+  response.send('Hello Kaden!');
+  
 });
+
 
 
 var port = process.env.PORT || 5000;
