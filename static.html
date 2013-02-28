@@ -1,28 +1,52 @@
 <html>
-    <head>
+<head>
 	
 	<script>
 function myFunction()
 {
-alert("Hello World!");
+document.getElementById("demo").innerHTML="My First JavaScript";
 }
 </script>
 
-        <title>Rockin' Page</title>
-       
-	   
-	 </head>
-	<body>
-        <p>This is a page. For realz, yo.</p>
+<title>TODO APP</title>
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+body {
+	background-color: #7FBF55;
+}
+.style2 {font-size: 36px}
+-->
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<body>
+    <p align="center" class="style2">Welcome to Kaden Strand's To Do List Web App!</p>
+    <p align="center">&nbsp;</p>
+    <p align="center">&nbsp;</p>
+    <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999">
+          <tr>
+            <td height="64"><div align="center" class="style1">Your To Do List: </div></td>
+          </tr>
+          <tr>
+            <td><form>
+            <div align="center">
+              <input type="text" name="firstname"><button onclick="myFunction()">Add to List</button>
+            </div>
+            
+            </form></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
 		
-		
-		<form>
-<input type="radio" name="sex" value="male">Male<br>
-<input type="radio" name="sex" value="female">Female
-</form>
 
+<p id="demo">My First Paragraph</p>
 
-		<button onclick="myFunction()">Try it</button>
 		
-    </body>
+		
+</body>
 </html>
