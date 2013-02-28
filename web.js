@@ -6,7 +6,7 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
   response.send('Hello Kaden!');
   
-  fs.readFile('./index.htm', function(error, content) {
+  fs.readFile('./static.html', function(error, content) {
         if (error) {
             response.writeHead(500);
             response.end();
