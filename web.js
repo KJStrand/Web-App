@@ -4,6 +4,7 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
   response.send('Hello Kaden!');
+  document.write("<p>My First JavaScript</p>");
 });
 
 
@@ -13,4 +14,3 @@ app.listen(port, function() {
 });
 
 
-document.write("<p>My First JavaScript</p>");
