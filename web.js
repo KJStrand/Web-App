@@ -1,7 +1,11 @@
 var express = require('express');
 var fs = require('fs');
 
-fs.readFile('./static.html', function(error, content) {
+var app = express.createServer(express.logger());
+
+app.get('/', function(request, response) {
+  
+  fs.readFile('./index.htm', function(error, content) {
         if (error) {
             response.writeHead(500);
             response.end();
@@ -11,16 +15,8 @@ fs.readFile('./static.html', function(error, content) {
             response.end(content, 'utf-8');
         }
     });
-
-
-var app = express.createServer(express.logger());
-
-app.get('/', function(request, response) {
-  response.send('Hello Kaden!');
   
 });
-
-
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
