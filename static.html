@@ -20,11 +20,13 @@ var cell1=row.insertCell(0);
 var cell2=row.insertCell(1);
 var cell3=row.insertCell(2);
 var cell4=row.insertCell(3);
+var cell5=row.insertCell(4);
 
 cell1.innerHTML='<div align="center"><input type="checkbox" name="vehicle" value="todoCheck"></div>';
 cell2.innerHTML=todoArray[todoArray.length-1];
-cell3.innerHTML='<div align="center"><select name="Priority"><option selected="selected">Select Priority</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="veryHigh">VERY HIGH</option></select></div>';
-cell4.innerHTML='<div align="center"><input type="button" value="Delete Item" align="center"></div>';
+cell3.innerHTML='<div align="center"><input type="color" value="rgb(128,0,0);" id="colorPicker"></div>';
+cell4.innerHTML='<div align="center"><select name="Priority"><option selected="selected">Select Priority</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="veryHigh">VERY HIGH</option></select></div>';
+cell5.innerHTML='<div align="center"><input type="button" value="Delete Item" align="center"></div>';
 
 
 var x=document.getElementById("demo");
@@ -86,13 +88,14 @@ body {
     <p>&nbsp;</p>
     <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#F5F5F5" id="listTable">
       <tr>
-        <td height="32" colspan="4" bgcolor="#F5F5F5"><div align="center" class="style3">Your To Do List: </div></td>
+        <td height="32" colspan="5" bgcolor="#F5F5F5"><div align="center" class="style3">Your To Do List: </div></td>
       </tr>
       <tr>
-        <td width="54" height="31" bgcolor="#F5F5F5"><div align="center" class="style1"><span class="style7">Done?</span></div></td>
-        <td width="295" bgcolor="#F5F5F5"><div align="center"><span class="style4">Item</span></div></td>
-        <td width="118" bgcolor="#F5F5F5"><div align="center" class="style4">Priority</div></td>
-        <td width="123" height="31" bgcolor="#F5F5F5">&nbsp;</td>
+        <td width="53" height="31" bgcolor="#F5F5F5"><div align="center" class="style1"><span class="style7">Done?</span></div></td>
+        <td width="211" bgcolor="#F5F5F5"><div align="center"><span class="style4">Item</span></div></td>
+        <td width="95" bgcolor="#F5F5F5"><div align="center"><span class="style4">Color Code </span></div></td>
+        <td width="117" bgcolor="#F5F5F5"><div align="center" class="style4">Priority</div></td>
+        <td width="112" height="31" bgcolor="#F5F5F5">&nbsp;</td>
       </tr>
     </table>
 <p align="center" class="style5">&nbsp;</p>
