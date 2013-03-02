@@ -3,6 +3,8 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
+app.use(express.static(__dirname + "/public"));
+
 app.get('/', function(request, response) {
   
   fs.readFile('./static.html', function(error, content) {
