@@ -20,8 +20,8 @@ var cell1=row.insertCell(0);
 var cell2=row.insertCell(1);
 var cell3=row.insertCell(2);
 
-cell1.innerHTML=todoArray[todoArray.length-1];
-cell2.innerHTML='<div align="center"><input type="checkbox" name="vehicle" value="todoCheck"></div>';
+cell1.innerHTML='<div align="center"><input type="checkbox" name="vehicle" value="todoCheck"></div>';
+cell2.innerHTML=todoArray[todoArray.length-1];
 cell3.innerHTML='<div align="center"><input type="button" value="Delete To Do Item" align="center"></div>';
 
 
@@ -42,30 +42,37 @@ $('input[type="button"]').click(function(e){
 	font-weight: bold;
 }
 body {
-	background-color: #7FBF55;
+	background-color: #000044;
 }
-.style2 {font-size: 36px}
-.style3 {color: #FFFFFF; font-weight: bold; font-size: 18px; }
+.style3 {color: #000044; font-weight: bold; font-size: 18px; }
+.style4 {color: #000044; font-weight: bold; }
+.style5 {color: #F5F5F5}
+.style6 {color: #F5F5F5;
+	font-style: italic;
+}
 -->
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
 <body>
-    <p align="center" class="style2">Welcome to Kaden Strand's To Do List Web App!</p>
-    <p align="center">&nbsp;</p>
-    <p align="center">&nbsp;</p>
+    <div align="center">
+      <p><img src="Logo.jpg" width="414" height="174"></p>
+    </div>
     <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999" id="inputTable">
           <tr>
-            <td height="37" colspan="2"><div align="center" class="style1">Enter an item: </div></td>
+            <td height="21" bgcolor="#F5F5F5"><div align="center" class="style4">Enter an item: </div></td>
           </tr>
           <tr>
-            <td width="298" height="52">
-            <div align="center">
+            <td height="52" bgcolor="#F5F5F5">
+            
               
-                <div align="right">
-                 <input type="text" id="listInput" onchange="addToList()">
-                </div>
-            </div>            </td>
-            <td width="296"><div align="center"><button onclick="addToList()">Add to List</button></div></td>
+              <table width="600" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="376"><div align="right"><input name="text" type="text" id="listInput" onChange="addToList()"></div></td>
+                  <td width="25">&nbsp;</td>
+                  <td width="199"><div align="left"><button onclick="addToList()">Add to List</button></div></td>
+                </tr>
+              </table>
+            </div></td>
           </tr>
         </table>
 
@@ -74,16 +81,38 @@ body {
 		
 		
     <p>&nbsp;</p>
-    <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999" id="listTable">
+    <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#F5F5F5" id="listTable">
       <tr>
-        <td height="32" colspan="3"><div align="center" class="style3">Your To Do List: </div></td>
+        <td height="32" colspan="3" bgcolor="#F5F5F5"><div align="center" class="style3">Your To Do List: </div></td>
       </tr>
       <tr>
-        <td width="417" height="31"><div align="center" class="style1">To Do: </div></td>
-        <td width="53">&nbsp;</td>
-        <td width="122" height="31">&nbsp;</td>
+        <td width="55" height="31" bgcolor="#F5F5F5"><div align="center" class="style1"></div></td>
+        <td width="415" bgcolor="#F5F5F5"><div align="center"><span class="style4">To Do: </span></div></td>
+        <td width="122" height="31" bgcolor="#F5F5F5">&nbsp;</td>
       </tr>
     </table>
-<p align="center">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<div align="center">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="19"><div align="center"><span class="style6">KS To Do was developed for Rally Software. Click the Rally logo to visit their site: </span></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><a href="http://www.rallydev.com"><img border="0" alt="Rally" src="rally_logo.jpg" height="50"></a></div></td>
+  </tr>
+</table>
+<p class="style5">
+<A HREF='javascript:window.alert("Example of a link that displays an alert box");' style="text-decoration: none"><font color="#F5F5F5">About</font></A> | <A HREF='javascript:window.alert("Example of a link that displays an alert box");' style="text-decoration: none"><font color="#F5F5F5">Contact</font></A> | <A HREF='javascript:window.alert("Example of a link that displays an alert box");' style="text-decoration: none"><font color="#F5F5F5">Help</font></A> | <A HREF='javascript:window.alert("Example of a link that displays an alert box");' style="text-decoration: none"><font color="#F5F5F5">Mission</font></A>
+</p>
+</div>
 </body>
 </html>
