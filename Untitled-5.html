@@ -1,0 +1,169 @@
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>	
+<script>
+var todoArray = new Array();
+
+function delRow(row){
+var table=document.getElementById("listTable");
+table.deleteRow(row);
+}
+    
+function makeTableArray(){
+   
+    var array = new Array();
+    var table=document.getElementById("listTable"); 
+    for (var i=2; i<table.rows.length; i++){
+        array[i-2]=table.rows[i].cells[1].innerHTML;
+    }
+  
+    return array;
+    
+    
+}
+    
+function addToList()
+{
+var x=document.getElementById("listInput");
+todoArray.push(x.value);
+
+var table=document.getElementById("listTable");
+var row=table.insertRow(table.rows.length);
+var cell1=row.insertCell(0);
+var cell2=row.insertCell(1);
+var cell3=row.insertCell(2);
+var cell4=row.insertCell(3);
+var cell5=row.insertCell(4);
+
+cell1.innerHTML='<div align="center"><input type="checkbox" name="vehicle" value="todoCheck"></div>';
+cell2.innerHTML=x.value;
+cell3.innerHTML='<div align="center"><input type="color" value="rgb(128,0,0);" id="colorPicker"></div>';
+cell4.innerHTML='<div align="center"><select name="Priority"><option selected="selected">Select</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></div>';
+cell5.innerHTML='<div align="center"><input type="button" value="Delete" align="center"></div>';
+
+var listArray = new Array();
+    listArray = makeTableArray();
+    listArray.toString();
+    setCookie(name,listArray,30)
+    var a = getCookie(name);
+    var array = new Array();
+    array = a.split(",");
+	
+    document.getElementById("testParagraph").innerHTML=array; 
+
+
+$('input[type="button"]').click(function(e){
+   $(this).closest('tr').remove()
+})
+}
+function getCookie(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+  {
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
+}
+
+function setCookie(c_name,value,exdays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate() + exdays);
+var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+document.cookie=c_name + "=" + c_value;
+}
+   
+</script>
+
+<title>TODO APP</title>
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+body {
+	background-color: #FFFFFF;
+}
+.style3 {color: #000044; font-weight: bold; font-size: 18px; }
+.style4 {color: #000044; font-weight: bold; }
+.style5 {color: #F5F5F5}
+.style6 {color: #F5F5F5;
+	font-style: italic;
+}
+.style7 {color: #000044}
+-->
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
+<body>
+    <div align="center">
+      <p><img src="Logo.jpg" width="414" height="174"></p>
+    </div>
+    <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999" id="inputTable">
+          
+          <tr>
+            <td height="52" bgcolor="#F5F5F5">
+            
+              
+              <table width="600" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="196"><span class="style4"><div align="right">Enter an item: </div></span></td>
+                  <td width="180"><div align="right"><input name="text" type="text" id="listInput" onChange="addToList()"></div></td>
+                  <td width="25">&nbsp;</td>
+                  <td width="199"><div align="left"><button onclick="addToList()">Add to List</button></div></td>
+                </tr>
+              </table>
+            </div></td>
+          </tr>
+        </table>
+
+
+
+		
+		
+    <p>&nbsp;</p>
+    <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#F5F5F5" id="listTable">
+      <tr>
+        <td height="32" colspan="5" bgcolor="#F5F5F5"><div align="center" class="style3">Your List</div></td>
+      </tr>
+      <tr>
+        <td width="53" height="31" bgcolor="#F5F5F5"><div align="center" class="style1"><span class="style7">Done</span></div></td>
+        <td width="257" bgcolor="#F5F5F5"><div align="center"><span class="style4">Item</span></div></td>
+        <td width="85" bgcolor="#F5F5F5"><div align="center"><span class="style4">Color </span></div></td>
+        <td width="81" bgcolor="#F5F5F5"><div align="center" class="style4">Priority</div></td>
+        <td width="112" height="31" bgcolor="#F5F5F5"><div align="center" class="style7"><strong>Delete</strong></div></td>
+      </tr>
+    </table>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<p align="center" class="style5">&nbsp;</p>
+<div align="center">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="19"><div align="center"><span class="style6">KS To Do was developed for Rally Software. Click the Rally logo to visit their site: </span></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><a href="http://www.rallydev.com"><img border="0" alt="Rally" src="rally_logo.jpg" height="50"></a></div></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+    <button type="button" onclick="makeTableArray()">array</button>
+    <p id="testParagraph">test</p>
+<p class="style5">
+<A HREF='javascript:window.alert("Hi! My name is Kaden Strand, which is what KS stands for. This is my first attempt to create a web app. Before starting this project, I had some experience with using Dreamweaver, but I had no experience using HTML, Javascript, JQuery, Node.js, github, or heroku. Everything on this page is built from scratch.");' style="text-decoration: none"><font color="#F5F5F5">About</font></A> | <A HREF='javascript:window.alert("Kaden Strand\n trovius@gmail.com");' style="text-decoration: none"><font color="#F5F5F5">Contact</font></A> | <A HREF='javascript:window.alert("To get started, enter text into the text box and press enter or press the Add to List button.");' style="text-decoration: none"><font color="#F5F5F5">Help</font></A> | <A HREF='javascript:window.alert("Unfortunately, KS To Do is not hiring at the moment. Check back soon!");' style="text-decoration: none"><font color="#F5F5F5">Jobs</font></A>
+</p>
+</div>
+</body>
+</html>
