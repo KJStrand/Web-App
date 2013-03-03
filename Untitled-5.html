@@ -78,7 +78,13 @@ exdate.setDate(exdate.getDate() + exdays);
 var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 document.cookie=c_name + "=" + c_value;
 }
-   
+
+function loadArray(){
+ var a = getCookie(name);
+ var array = new Array();
+ array = a.split(",");
+document.getElementById("testParagraph").innerHTML=array; 
+}
 </script>
 
 <title>TODO APP</title>
@@ -101,7 +107,7 @@ body {
 -->
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
-<body>
+<body onLoad="loadArray()">
     <div align="center">
       <p><img src="Logo.jpg" width="414" height="174"></p>
     </div>
