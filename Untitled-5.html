@@ -82,9 +82,9 @@ function loadArray(){
  var a = getCookie(name);
  var array = new Array();
  array = a.split(",");
-/*document.getElementById("testParagraph").innerHTML=array;*/
+document.getElementById("testParagraph").innerHTML=array;
 
-/*for(var i = 0; i < array.length-3; i++){
+for(var i = 0; i < array.length; i++){
 
 var x=document.getElementById("listInput");
 
@@ -101,7 +101,7 @@ cell2.innerHTML=array[i];
 cell3.innerHTML='<div align="center"><input type="color" value="rgb(128,0,0);" id="colorPicker"></div>';
 cell4.innerHTML='<div align="center"><select name="Priority"><option selected="selected">Select</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></div>';
 cell5.innerHTML='<div align="center"><input type="button" value="Delete" align="center"></div>';
-}*/
+}
  
 }
 </script>
@@ -126,7 +126,7 @@ body {
 -->
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
-<body>
+<body onLoad="loadArray">
     <div align="center"><img src="Logo.jpg" width="414" height="174"></p>
     </div>
     <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999" id="inputTable">
