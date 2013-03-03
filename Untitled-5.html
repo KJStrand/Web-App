@@ -46,9 +46,7 @@ var listArray = new Array();
     setCookie(name,listArray,30)
     var a = getCookie(name);
     var array = new Array();
-    array = a.split(",");
-	
-    document.getElementById("testParagraph").innerHTML=array; 
+    array = a.split(","); 
 
 
 $('input[type="button"]').click(function(e){
@@ -82,7 +80,6 @@ function loadArray(){
  var a = getCookie(name);
  var array = new Array();
  array = a.split(",");
-document.getElementById("testParagraph").innerHTML=array;
 
 for(var i = 0; i < array.length; i++){
 
