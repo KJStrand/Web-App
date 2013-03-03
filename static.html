@@ -8,7 +8,7 @@ function delRow(row){
 var table=document.getElementById("listTable");
 table.deleteRow(row);
 }
-
+    
 function makeTableArray(){
    
     var array = new Array();
@@ -18,9 +18,10 @@ function makeTableArray(){
     }
   
     return array;
-     
+    
+    
 }
-
+    
 function addToList()
 {
 var x=document.getElementById("listInput");
@@ -35,29 +36,26 @@ var cell4=row.insertCell(3);
 var cell5=row.insertCell(4);
 
 cell1.innerHTML='<div align="center"><input type="checkbox" name="vehicle" value="todoCheck"></div>';
-cell2.innerHTML=todoArray[todoArray.length-1];
+cell2.innerHTML=x.value;
 cell3.innerHTML='<div align="center"><input type="color" value="rgb(128,0,0);" id="colorPicker"></div>';
 cell4.innerHTML='<div align="center"><select name="Priority"><option selected="selected">Select</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></div>';
 cell5.innerHTML='<div align="center"><input type="button" value="Delete" align="center"></div>';
 
 var listArray = new Array();
     listArray = makeTableArray();
-listArray.toString();
-    createCookie(arrayCookie,listArray,30);
+    listArray.toString();
+    createCookie(name,listArray,30)
+    var a = readCookie(name);
+    var array = new Array();
+    array = a.split(",");
+   
+    alert(array[3]);
+    document.getElementById("testParagraph").innerHTML=array; 
+
 
 $('input[type="button"]').click(function(e){
    $(this).closest('tr').remove()
 })
-}
-
-function loadArray(){
-    var a = readCookie(arrayCookie);
-    var array = new Array();
-    array = a.split(",");
-	document.getElementById("testParagraph").innerHTML=array;
-    return array;
-}
-
 }
 function createCookie(name,value,days) {
 	if (days) {
@@ -82,7 +80,7 @@ function readCookie(name) {
 
 function eraseCookie(name) {
 	createCookie(name,"",-1);
-} 
+}   
 </script>
 
 <title>TODO APP</title>
