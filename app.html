@@ -2,7 +2,6 @@
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>	
 <script>
-var todoArray = new Array();
 
 function delRow(row){
 var table=document.getElementById("listTable");
@@ -25,7 +24,7 @@ function makeTableArray(){
 function addToList()
 {
 var x=document.getElementById("listInput");
-todoArray.push(x.value);
+
 
 var table=document.getElementById("listTable");
 var row=table.insertRow(table.rows.length);
@@ -44,43 +43,68 @@ cell5.innerHTML='<div align="center"><input type="button" value="Delete" align="
 var listArray = new Array();
     listArray = makeTableArray();
     listArray.toString();
-    createCookie(name,listArray,30)
-    var a = readCookie(name);
+    setCookie(name,listArray,30)
+    var a = getCookie(name);
     var array = new Array();
-    array = a.split(",");
-   
-    alert(array[3]);
-    document.getElementById("testParagraph").innerHTML=array; 
+    array = a.split(","); 
 
 
 $('input[type="button"]').click(function(e){
-   $(this).closest('tr').remove();
+   $(this).closest('tr').remove()
 })
 }
-function createCookie(name,value,days) {
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	}
-	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";
+function getCookie(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+  {
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
 }
 
-function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;
+function setCookie(c_name,value,exdays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate() + exdays);
+var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+document.cookie=c_name + "=" + c_value;
 }
 
-function eraseCookie(name) {
-	createCookie(name,"",-1);
-}   
+function loadArray(){
+ var a = getCookie(name);
+ var array = new Array();
+ array = a.split(",");
+
+for(var i = 0; i < array.length; i++){
+
+var x=document.getElementById("listInput");
+
+var table=document.getElementById("listTable");
+var row=table.insertRow(table.rows.length);
+var cell1=row.insertCell(0);
+var cell2=row.insertCell(1);
+var cell3=row.insertCell(2);
+var cell4=row.insertCell(3);
+var cell5=row.insertCell(4);
+
+cell1.innerHTML='<div align="center"><input type="checkbox" name="vehicle" value="todoCheck"></div>';
+cell2.innerHTML=array[i];
+cell3.innerHTML='<div align="center"><input type="color" value="rgb(128,0,0);" id="colorPicker"></div>';
+cell4.innerHTML='<div align="center"><select name="Priority"><option selected="selected">Select</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></div>';
+cell5.innerHTML='<div align="center"><input type="button" value="Delete" align="center"></div>';
+
+$('input[type="button"]').click(function(e){
+   $(this).closest('tr').remove()
+})
+}
+ 
+}
 </script>
 
 <title>TODO APP</title>
@@ -91,7 +115,7 @@ function eraseCookie(name) {
 	font-weight: bold;
 }
 body {
-	background-color: #000044;
+	background-color: #000144;
 }
 .style3 {color: #000044; font-weight: bold; font-size: 18px; }
 .style4 {color: #000044; font-weight: bold; }
@@ -103,9 +127,8 @@ body {
 -->
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></head>
-<body>
-    <div align="center">
-      <p><img src="public/Logo1.jpg" width="518" height="256"></p>
+<body onLoad="loadArray()">
+    <div align="center"><img src="Logo.jpg" width="414" height="174"></p>
     </div>
     <table width="600" border="1" align="center" cellpadding="0" cellspacing="0" bgcolor="#999999" id="inputTable">
           
@@ -161,10 +184,8 @@ body {
   </tr>
 </table>
 <p>&nbsp;</p>
-<button type="button" onclick="loadArray">array</button>
-    <p id="testParagraph">test</p>
 <p class="style5">
-<A HREF='javascript:window.alert("Hi! My name is Kaden Strand, which is what KS stands for. This is my first attempt to create a web app. Before starting this project, I had some experience with using Dreamweaver, but I had no experience using HTML, Javascript, JQuery, Node.js, github, or heroku. Everything on this page is built from scratch.");' style="text-decoration: none"><font color="#F5F5F5">About</font></A> | <A HREF='javascript:window.alert("Kaden Strand\n trovius@gmail.com");' style="text-decoration: none"><font color="#F5F5F5">Contact</font></A> | <A HREF='javascript:window.alert("To get started, enter text into the text box and press enter or press the Add to List button.");' style="text-decoration: none"><font color="#F5F5F5">Help</font></A> | <A HREF='javascript:window.alert("Unfortunately, KS To Do is not hiring at the moment. Check back soon!");' style="text-decoration: none"><font color="#F5F5F5">Jobs</font></A>
+<A HREF='javascript:window.alert("Hi! My name is Kaden Strand, which is what KS stands for. This is my first attempt to create a web app. Before starting this project, I had some experience with using Dreamweaver, but I had no experience using HTML, Javascript, JQuery, Node.js, github, or heroku. Everything on this page is built from scratch.");' style="text-decoration: none"><font color="#F5F5F5">About</font></A> | <A HREF='javascript:window.alert("Kaden Strand\n trovius@gmail.com");' style="text-decoration: none"><font color="#F5F5F5">Contact</font></A> | <A HREF='javascript:window.alert("To get started, enter text into the text box and press enter or press the Add to List button.\nKnown issues:\nCurrently, only the item text is stored when the page is reloaded.\n");' style="text-decoration: none"><font color="#F5F5F5">Help</font></A> | <A HREF='javascript:window.alert("Unfortunately, KS To Do is not hiring at the moment. Check back soon!");' style="text-decoration: none"><font color="#F5F5F5">Jobs</font></A>
 </p>
 </div>
 </body>
